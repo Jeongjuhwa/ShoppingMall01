@@ -2,6 +2,13 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <style>
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+}
+
 head {
 	color: white;
 }
@@ -45,13 +52,9 @@ h6 {
 
 img {
 	background-position: center;
-	margin-left: 60px;
-	margin-top: 12px;
-	margin-bottom: 12px;
 	background-size: contain;
-	height: 500px;
-	width: 1298px;
-	margin-right: 600px;
+	height: 80%;
+	width: 80%;
 	align: center;
 }
 
@@ -67,6 +70,13 @@ hr {
 	margin-right: 60px;
 }
 
+hh {
+	text-align: center;
+	style="margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
 h3 {
 	text-align: center;
 	margin-top: 15px;
@@ -79,15 +89,43 @@ h3 {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	word-spacing: 50px;
+	word-spacing: 5px;
 	letter-spacing: inherit;
-	text-align: center;
+	text-align: left;
 	font-style: italic;
 	font-size: 15px;
 	margin-bottom: 8px;
 	color: white;
 }
+
+ul {
+	margin: 5px;
+	list-style: none;
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    color: white;
+}
+
+li {
+	margin: 5px;
+	list-style: none;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    color: white;
+}
+
+foot {
+	margin: 5px;
+	padding: 0;
+}
+
 </style>
+
 
 
 <html>
@@ -126,14 +164,40 @@ h3 {
 			<hr>
 		</div>
 		<hr>
-
-		<img src="./ring1.jpg" alt="반지" align="center">
-
-
-
 	</div>
-	<div id="footer"></div>
-
-
+	
+	<div id=hh>
+		<img src="./ring1.jpg" alt="반지">
+	</div>
+	
+	
+	<div id = foot>
+		<!-- a href="">instagram</a> <br-->
+		<br><br><br><br><br><br>
+		<ul>
+			<li>
+				회사이름 : <br>
+			</li>
+			<li>
+				주소 : <br>
+			</li>
+			<li>
+				고객센터 : xxxx - xxxx<br>
+			</li>
+			<li>
+				이메일 : xxxx@xxxx.com<br>
+			</li>
+			<li>
+				사업자 등록 번호 : xxxx-xx-xxxxx<br>
+			</li>
+			<li>
+				통신판매번호 : xxxx-xxxx-xxxx<br>
+			</li>
+			<li>
+				Copyright© 2020. Minyeji All Rights Reserved.<br>
+			</li>
+		</ul>
+		
+	</div>
 </body>
 </html>
