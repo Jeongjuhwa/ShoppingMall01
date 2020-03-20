@@ -6,77 +6,135 @@
 <meta charset="UTF-8">
 <title>MVC 게시판</title>
 <style type="text/css">
-#registForm {
-	width: 500px;
-	height: 610px;
-	border: 1px solid red;
-	margin: auto;
+body {
+	margin-top: 20px;
+	margin-left: 140px;
+	margin-right: 140px;
+	text-align:left, center;
 }
 
 h2 {
 	text-align: center;
+	font-family: normal;
+	font-size: 30px;
+	margin-top: 40px;
 }
 
-table {
-	margin: auto;
-	width: 450px;
+.name {
+	margin-top: 20px;
+	margin-left:5px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	font-family: monospace;
+	word-spacing: 40px;
+	text-display:center;
+	
 }
 
-.td_left {
-	width: 150px;
-	background: orange;
+.pw {
+	margin-top: 20px;
+	margin-left:5px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	font-family: monospace;
+	word-spacing: 30px;
+	text-display:center;
 }
 
-.td_right {
-	width: 300px;
-	background: skyblue;
+.title {
+	margin-top: 20px;
+	margin-left:5px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	font-family: monospace;
+	word-spacing: 55px;
+	text-display:center;
 }
+
+.main {
+	margin-top: 20px;
+	margin-left:5px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	font-family: monospace;
+	word-spacing: 30px;
+	text-display:center;
+}
+
+.add {
+	margin-top: 20px;
+	margin-left:5px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	font-family: monospace;
+	word-spacing: 30px;
+	text-display:center;
+}
+
 
 #commandCell {
+	margin-top: 20px;
 	text-align: center;
+	
+	
 }
+
 </style>
 </head>
 <body>
 	<!-- 게시판 등록 -->
 
 	<section id="writeForm">
-		<h2>게시판글등록</h2>
+
+		<h2>상품/배송문의</h2>
+		<br>
 		<form action="boardWritePro.bo" method="post"
 			enctype="multipart/form-data" name="boardform">
-			<table>
-				<tr>
-					<td class="td_left"><label for="BOARD_NAME">글쓴이</label></td>
-					<td class="td_right"><input type="text" name="BOARD_NAME"
-						id="BOARD_NAME" required="required" /></td>
-				</tr>
-				<tr>
-					<td class="td_left"><label for="BOARD_PASS">비밀번호</label></td>
-					<td class="td_right"><input name="BOARD_PASS" type="password"
-						id="BOARD_PASS" required="required" /></td>
-				</tr>
-				<tr>
-					<td class="td_left"><label for="BOARD_SUBJECT">제 목</label></td>
-					<td class="td_right"><input name="BOARD_SUBJECT" type="text"
-						id="BOARD_SUBJECT" required="required" /></td>
-				</tr>
-				<tr>
-					<td class="td_left"><label for="BOARD_CONTENT">내 용</label></td>
-					<td><textarea id="BOARD_CONTENT" name="BOARD_CONTENT"
-							cols="40" rows="15" required="required"></textarea></td>
-				</tr>
-				<tr>
-					<td class="td_left"><label for="BOARD_FILE"> 파일 첨부 </label></td>
-					<td class="td_right"><input name="BOARD_FILE" type="file"
-						id="BOARD_FILE" required="required" /></td>
-				</tr>
-			</table>
+			<hr>
+			<div class="name">
+				<label for="BOARD_NAME"><strong>작성자</strong></label>
+				<input type="text" name="BOARD_NAME" id="BOARD_NAME" required="required" style="width: 192px; height: 24px; font-size: 15px;
+				" /></div>	
+			<hr>
+			<div class="pw">
+					<label for="BOARD_PASS"><strong>비밀번호</strong></label>
+					<input name="BOARD_PASS" type="password" id="BOARD_PASS"
+						required="required"
+						style="width: 192px; height: 24px; font-size: 15px;" />
+				</div>
+				<hr>
+			
+			<div class="title">
+					<label for="BOARD_SUBJECT"><strong>제목</strong></label>
+					<input name="BOARD_SUBJECT" type="text" id="BOARD_SUBJECT"
+						required="required"
+						style="width: 192px; height: 24px; font-size: 15px;" />
+				</div>
+				<hr>
+
+			<div class="main">
+					<strong>내용</strong>
+				<textarea id="BOARD_CONTENT" name="BOARD_CONTENT" required="required"
+					style="width: 1078px; height: 202px; font-size: 15px; margin-left:80px; margin-top:3px;"></textarea>
+				<hr>
+				</div>
+			
+			<div class="add">
+					<label for="BOARD_FILE"> <strong>첨부파일</strong></label>
+					<input name="BOARD_FILE" type="file" id="BOARD_FILE"
+						required="required" />
+				</div>
+
+				
+				<hr>
+		
+
 			<section id="commandCell">
 				<input type="submit" value="등록">&nbsp;&nbsp; <input
 					type="reset" value="다시쓰기" />
 			</section>
 		</form>
 	</section>
-	<!-- 게시판 등록 -->
+	<!— 게시판 등록 —>
 </body>
 </html>

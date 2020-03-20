@@ -58,7 +58,7 @@ public class BoardDAO {
 	}
 
 	// �� ��� ����.
-	public ArrayList<BoardBean> selectArticleList(int page, int limit) {
+	public ArrayList<BoardBean> selectArticleList(int page, int limit, String target) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -66,7 +66,7 @@ public class BoardDAO {
 		String board_list_sql = "select * from " + "(select rownum rnum,BOARD_NUM,BOARD_NAME,BOARD_SUBJECT,"
 				+ "BOARD_CONTENT,BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,"
 				+ "BOARD_RE_SEQ,BOARD_READCOUNT,BOARD_DATE from "
-				+ "(select * from board order by BOARD_RE_REF desc,BOARD_RE_SEQ asc)) " + "where rnum>=? and rnum<=?";
+				+ "(select * from " + target +" order by BOARD_RE_REF desc,BOARD_RE_SEQ asc)) " + "where rnum>=? and rnum<=?";
 		ArrayList<BoardBean> articleList = new ArrayList<BoardBean>();
 		BoardBean board = null;
 		int startrow = (page - 1) * 10; // 읽기 시작할 row 번호..

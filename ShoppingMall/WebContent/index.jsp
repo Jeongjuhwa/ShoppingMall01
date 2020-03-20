@@ -19,7 +19,7 @@ h1 {
 
 a {
 	color: white;
-	font-style:normal;
+	font-style: normal;
 	text-decoration: none;
 }
 
@@ -52,6 +52,7 @@ img {
 	height: 500px;
 	width: 1298px;
 	margin-right: 600px;
+	align: center;
 }
 
 body {
@@ -100,7 +101,14 @@ h3 {
 <body>
 
 	<div class="kk">
-		<div><a href="boardWriteForm.bo">JOIN</a> LOG_IN MYPAGE ORDER CART(0) <a href="boardList.bo">COMMUNITY</a> SEARCH</div>
+		<div>
+			<a href="MemberLogin.bo">LOG_IN</a>
+			CART(0)
+			<a href="board1List.bo">NOTICE</a>
+			<a href="board2List.bo">REVIEW</a> 
+			<a href="board3List.bo">Q&A</a>
+			<a href="">FAQ</a>
+		</div>
 
 		<h1>
 			<a>gorgeous</a>
@@ -119,15 +127,13 @@ h3 {
 		</div>
 		<hr>
 
-		<img src="./ring1.jpg" alt="반지">
+		<img src="./ring1.jpg" alt="반지" align="center">
 
 
 
 	</div>
-	<div id="footer">
-		<div>NOTICE REVIEW STORE_INFO CUSTOMER_SERVICE</div>
-	</div>
-	
-	
+	<div id="footer"></div>
+
+
 </body>
 </html>

@@ -21,13 +21,13 @@ public class BoardListService {
 
 	}
 
-	public ArrayList<BoardBean> getArticleList(int page, int limit) throws Exception {
+	public ArrayList<BoardBean> getArticleList(int page, int limit, String target) throws Exception {
 
 		ArrayList<BoardBean> articleList = null;
 		Connection con = getConnection();
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		boardDAO.setConnection(con);
-		articleList = boardDAO.selectArticleList(page, limit);
+		articleList = boardDAO.selectArticleList(page, limit, target);
 		close(con);
 		return articleList;
 

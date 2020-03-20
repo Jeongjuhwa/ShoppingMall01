@@ -118,7 +118,7 @@ table {
 		<%
 			} else {
 		%>
-		<a href="board3List.bo?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
+		<a href="board2List.bo?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
 		<%
 			}
 		%>
@@ -131,7 +131,7 @@ table {
 		<%
 			} else {
 		%>
-		<a href="board3List.bo?page=<%=a%>">[<%=a%>]
+		<a href="board2List.bo?page=<%=a%>">[<%=a%>]
 		</a>&nbsp;
 		<%
 			}
@@ -147,7 +147,7 @@ table {
 		<%
 			} else {
 		%>
-		<a href="board3List.bo?page=<%=nowPage + 1%>">[다음]</a>
+		<a href="board2List.bo?page=<%=nowPage + 1%>">[다음]</a>
 		<%
 			}
 		%>
