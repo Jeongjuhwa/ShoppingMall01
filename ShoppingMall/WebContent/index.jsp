@@ -2,11 +2,20 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <style>
-html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+dl, dt, dd, h1, h2, h3, h4, h5, h6,
+pre, code, form, fieldset, legend, input, textarea,
+p, blockquote, th, td {
     margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
+}
+
+#wrap {
+	width: 80%;
+	height: 100%; 
+	margin: 0 auto; 
+	text-align: center; 
 }
 
 head {
@@ -37,7 +46,7 @@ h6 {
 	font-size: 13px;
 	letter-spacing: 10px;
 	font-style: normal;
-	margin-bottom: 30px;
+	margin-bottom: 70px;
 }
 
 .kk {
@@ -53,8 +62,8 @@ h6 {
 img {
 	background-position: center;
 	background-size: contain;
-	height: 80%;
-	width: 80%;
+	height: 90%;
+	width: 90%;
 	align: center;
 }
 
@@ -72,8 +81,6 @@ hr {
 
 hh {
 	text-align: center;
-	style="margin-left: auto;
-	margin-right: auto;
 	display: block;
 }
 
@@ -84,22 +91,7 @@ h3 {
 	font-style: italic;
 }
 
-#footer {
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	word-spacing: 5px;
-	letter-spacing: inherit;
-	text-align: left;
-	font-style: italic;
-	font-size: 15px;
-	margin-bottom: 8px;
-	color: white;
-}
-
 ul {
-	margin: 5px;
 	list-style: none;
     display: block;
     list-style-type: disc;
@@ -107,22 +99,33 @@ ul {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    padding-inline-start: 40px;
+    
     color: white;
 }
 
 li {
-	margin: 5px;
+	margin: 2px;
 	list-style: none;
     display: list-item;
+    font-size: 12px;
     text-align: -webkit-match-parent;
     color: white;
 }
 
-foot {
-	margin: 5px;
-	padding: 0;
+#ten {
+	width: 10%;
+	float: left;
 }
+
+#eighty {
+	width: 80%;
+	float: left;
+}
+
+#footer {
+	margin: 1%;
+}
+
 
 </style>
 
@@ -131,73 +134,77 @@ foot {
 <html>
 <head>
 
-<title>You are gorgeous!</title>
+<title>Welcome to gogeous</title>
 <meta charset="utf-8">
 
 </head>
 
 <body>
-
-	<div class="kk">
-		<div>
-			<a href="MemberLogin.bo">LOG_IN</a>
-			CART(0)
-			<a href="board1List.bo">NOTICE</a>
-			<a href="board2List.bo">REVIEW</a> 
-			<a href="board3List.bo">Q&A</a>
-			<a href="">FAQ</a>
-		</div>
-
-		<h1>
-			<a>gorgeous</a>
-		</h1>
-		<h6>
-			<b> Accessories </b>
-		</h6>
-
-		<hr>
-
-		<h3>BEST BASIC_ITEM NEW_ARRIVAL RING EARING NECKLACE SIVER_925
-			ETC BIG_SALE VINTAGE_COLLECTION</h3>
-
-		<div>
+	<div id="wrap">
+		<div class="kk">
+			<div>
+				<a href="MemberLogin.bo">LOG_IN</a>
+				CART(0)
+				<a href="board1List.bo">NOTICE</a>
+				<a href="board2List.bo">REVIEW</a> 
+				<a href="board3List.bo">Q&A</a>
+				<a href="">FAQ</a>
+			</div>
+	
+			<h1>
+				<a href="index.jsp">gorgeous</a>
+			</h1>
+			<h6>
+				<b> Accessories </b>
+			</h6>
+	
+			<hr>
+	
+			<h3>
+			<a href= "./goods/best.jsp">BEST</a>
+			BASIC_ITEM NEW_ARRIVAL RING EARING NECKLACE SIVER_925
+				ETC BIG_SALE VINTAGE_COLLECTION</h3>
+	
+			<div>
+				<hr>
+			</div>
 			<hr>
 		</div>
-		<hr>
-	</div>
-	
-	<div id=hh>
-		<img src="./ring1.jpg" alt="반지">
-	</div>
-	
-	
-	<div id = foot>
-		<!-- a href="">instagram</a> <br-->
-		<br><br><br><br><br><br>
-		<ul>
-			<li>
-				회사이름 : <br>
-			</li>
-			<li>
-				주소 : <br>
-			</li>
-			<li>
-				고객센터 : xxxx - xxxx<br>
-			</li>
-			<li>
-				이메일 : xxxx@xxxx.com<br>
-			</li>
-			<li>
-				사업자 등록 번호 : xxxx-xx-xxxxx<br>
-			</li>
-			<li>
-				통신판매번호 : xxxx-xxxx-xxxx<br>
-			</li>
-			<li>
-				Copyright© 2020. Minyeji All Rights Reserved.<br>
-			</li>
-		</ul>
 		
+		<div id="hh">
+			<img src="./ring1.jpg" alt="반지">
+		</div>
+	</div>
+	
+	<div id="footer">
+		<!-- a href="">instagram</a> <br-->
+		<div id="ten">ii</div>
+		<div id="eighty"> 
+			<ul>
+				<li>
+					회사이름 : <br>
+				</li>
+				<li>
+					주소 : <br>
+				</li>
+				<li>
+					고객센터 : xxxx - xxxx<br>
+				</li>
+				<li>
+					이메일 : xxxx@xxxx.com<br>
+				</li>
+				<li>
+					사업자 등록 번호 : xxxx-xx-xxxxx<br>
+				</li>
+				<li>
+					통신판매번호 : xxxx-xxxx-xxxx<br>
+				</li>
+				<li>
+					Copyright© 2020. Minyeji All Rights Reserved.<br>
+				</li>
+			</ul>
+		</div> 	
 	</div>
 </body>
+
 </html>

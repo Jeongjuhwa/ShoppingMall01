@@ -39,7 +39,10 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 
-		if (command.equals("/boardWriteForm.bo")) {
+		if (command.equals("/index.jsp")) {
+			forward = new ActionForward();
+			forward.setPath("/index.jsp");
+		} else if (command.equals("/boardWriteForm.bo")) {
 			forward = new ActionForward();
 			forward.setPath("/board/qna_board_write.jsp");
 		} else if (command.equals("/boardWritePro.bo")) {
