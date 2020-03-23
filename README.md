@@ -1,13 +1,16 @@
-## 1. Install Java SE Development Kit 11
+## 1. Git clone this repository
+
+```
+git clone https://github.com/lsjjong8/ShoppingMall01.git
+```
+
+## 2. Install Java SE Development Kit 11
 
 Java SE 11.0.6 (LTS; Long Term Support) is the latest release for the Java SE 11 Platform
 
 Download link : https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
 
-
-
-
-## Installation(Local)
+## 3. Set Java Build Path
 ```
 git clone https://github.com/wnameless/docker-oracle-xe-11g.git
 cd docker-oracle-xe-11g
