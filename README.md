@@ -21,7 +21,7 @@ path : ~/ShoppingMall01/WebContent/WEB-INF/lib
 
 ## 4. Set server yourself
 ```
-Set your server (ex: apache 8.5)
+Set your server (ex: apache 8.5, java SE 11)
 ```
 ## 5. Set file (context.xml, web.xml)
 
