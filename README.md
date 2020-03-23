@@ -29,7 +29,7 @@ Set your server (ex: apache 8.5, java SE 11)
          auth="Container"
          type="javax.sql.DataSource" 
          username="hr" 
-         password="<del>**</del>"
+         password="**"
          driverClassName="oracle.jdbc.driver.OracleDriver"
          factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
          url="jdbc:oracle:thin:@localhost:1521:xe"
