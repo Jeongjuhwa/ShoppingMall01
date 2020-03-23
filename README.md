@@ -12,7 +12,11 @@ Download link : https://www.oracle.com/java/technologies/javase-jdk11-downloads.
 
 ## 3. Set Java Build Path
 ```
-Set jar file from build path (~/ShoppingMall01/WebContent/WEB-INF/lib) 
+Set jar files from build path 
+
+commons-collections-3.2.1.jar, commons-dbcp-1.2.2, commons-pool-1.4... etc.
+
+path : ~/ShoppingMall01/WebContent/WEB-INF/lib
 ```
 
 ## 4. Set server yourself
