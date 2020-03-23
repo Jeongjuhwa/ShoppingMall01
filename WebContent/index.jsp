@@ -144,10 +144,10 @@ li {
 			<div>
 				<a href="MemberLogin.me">LOG_IN</a>
 				CART(0)
-				<a href="board1List.bo">NOTICE</a>
-				<a href="board2List.bo">REVIEW</a> 
-				<a href="board3List.bo">Q&A</a>
-				<a href="board4List.bo">FAQ</a>
+				<a href="boardList.bo?target=board1">NOTICE</a>
+				<a href="boardList.bo?target=board2">REVIEW</a> 
+				<a href="boardList.bo?target=board3">Q&A</a>
+				<a href="boardList.bo?target=board4">FAQ</a>
 			</div>
 	
 			<h1>

@@ -32,29 +32,8 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet {
 		if (command.equals("/index.jsp")) {
 			forward = new ActionForward();
 			forward.setPath("/index.jsp");
-		} else if (command.equals("/board1List.bo")) {
-			action = new Board1ListAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board2List.bo")) {
-			action = new Board2ListAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board3List.bo")) {
-			action = new Board3ListAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board4List.bo")) {
-			action = new Board4ListAction();
+		} else if (command.equals("/boardList.bo")) {
+			action = new BoardListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
