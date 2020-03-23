@@ -14,9 +14,9 @@ Download link : https://www.oracle.com/java/technologies/javase-jdk11-downloads.
 ```
 Set jar files from build path 
 
-commons-collections-3.2.1.jar, commons-dbcp-1.2.2, commons-pool-1.4... etc.
-
 path : ~/ShoppingMall01/WebContent/WEB-INF/lib
+
+commons-collections-3.2.1.jar, commons-dbcp-1.2.2, commons-pool-1.4... etc.
 ```
 
 ## 4. Set server yourself
@@ -25,6 +25,7 @@ Set your server (ex: apache 8.5, java SE 11)
 ```
 ## 5. Set file (context.xml, web.xml)
 
+```
 <Resource name="jdbc/OracleDB" 
          auth="Container"
          type="javax.sql.DataSource" 
@@ -35,6 +36,7 @@ Set your server (ex: apache 8.5, java SE 11)
          url="jdbc:oracle:thin:@localhost:1521:xe"
          maxActive="500" 
          maxIdle="100"/> 
+```
 
 
 ## 6. excute CreateBoard.sql
