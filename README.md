@@ -15,12 +15,27 @@ Download link : https://www.oracle.com/java/technologies/javase-jdk11-downloads.
 Set jar file from build path (~/ShoppingMall01/WebContent/WEB-INF/lib) 
 ```
 
-## 4. Set server your server
+## 4. Set server yourself
 ```
 Set your server (ex: apache 8.5)
 ```
+## 5. Set file (context.xml, web.xml)
 
-## Quick Start
+```
+<Resource name="jdbc/OracleDB" 
+         auth="Container"
+         type="javax.sql.DataSource" 
+         username="hr" 
+         password="hr"
+         driverClassName="oracle.jdbc.driver.OracleDriver"
+         factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+         url="jdbc:oracle:thin:@localhost:1521:xe"
+         maxActive="500" 
+         maxIdle="100"/> 
+```
+
+
+## 6. excute CreateBoard.sql
 
 Run with 1521 port opened:
 ```
