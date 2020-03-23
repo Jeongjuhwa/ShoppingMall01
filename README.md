@@ -25,6 +25,7 @@ Set your server (ex: apache 8.5, java SE 11)
 ```
 ## 5. Set file (context.xml, web.xml)
 
+Set your DB portnumber, username, password for connection
 ```
 <Resource name="jdbc/OracleDB" 
          auth="Container"
