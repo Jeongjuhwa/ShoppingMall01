@@ -15,11 +15,10 @@ Download link : https://www.oracle.com/java/technologies/javase-jdk11-downloads.
 Set jar file from build path (~/ShoppingMall01/WebContent/WEB-INF/lib) 
 ```
 
-## Installation(DockerHub)
+## 4. Set server your server
 ```
-docker pull wnameless/oracle-xe-11g-r2
+Set your server (ex: apache 8.5)
 ```
-SSH server has been removed since 18.04, please use "docker exec"
 
 ## Quick Start
 
