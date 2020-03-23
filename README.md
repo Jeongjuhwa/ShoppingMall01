@@ -52,4 +52,4 @@ commit;
 ## 7. Run index.html
 
 
-If you preapred, run index.html!!!
+If you preapred, run index.html
