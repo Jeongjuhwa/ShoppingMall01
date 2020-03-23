@@ -1,5 +1,5 @@
-<%@ page import="vo.PageInfo"%>
-<%@ page import="vo.BoardBean"%>
+<%@ page import="net.board.vo.PageInfo"%>
+<%@ page import="net.board.vo.BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
@@ -21,10 +21,10 @@
 <title>gorgeous - NOTICE</title>
 <style type="text/css">
 h3 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
 }
 
 #wrap {
@@ -47,14 +47,14 @@ h1 {
 
 h3 {
 	display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 15px;
-    word-spacing: 40px;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 15px;
+	word-spacing: 40px;
 }
 
 h4 {
@@ -77,10 +77,10 @@ h6 {
 }
 
 hr {
-    border: solid 0.3px white;
-    margin-top: 8px;
-    margin-left: 60px;
-    margin-right: 60px;
+	border: solid 0.3px white;
+	margin-top: 8px;
+	margin-left: 60px;
+	margin-right: 60px;
 }
 
 .kk {
@@ -95,7 +95,7 @@ hr {
 
 table {
 	border: 1px solid #bcbcbc;
-	width: 90%;
+	width: 85%;
 	font-size: 20px;
 	color: white;
 	margin-left: auto;
@@ -105,7 +105,8 @@ table {
 th {
 	border: 1px solid #bcbcbc;
 	font-size: 20px;
-	color: white;
+	color: black;
+	background-color: gray;
 }
 
 a {
@@ -122,6 +123,13 @@ p {
 	font-size: 16px;
 	color: white;
 	border: 1px solid #bcbcbc;
+}
+
+.tds2 {
+	font-size: 16px;
+	color: white;
+	border: 1px solid #bcbcbc;
+	text-align: left;
 }
 
 #pageList {
@@ -200,8 +208,6 @@ body {
 	margin-left: 370px;
 	font-family: italic;
 }
-
-
 </style>
 </head>
 <body>
@@ -258,7 +264,7 @@ body {
 				<tr>
 					<td class="tds"><%=articleList.get(i).getBOARD_NUM()%></td>
 
-					<td class="tds">
+					<td class="tds2">
 						<%
 							if (articleList.get(i).getBOARD_RE_LEV() != 0) {
 						%> <%

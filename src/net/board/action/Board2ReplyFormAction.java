@@ -2,9 +2,10 @@ package net.board.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import svc.BoardDetailService;
-import vo.ActionForward;
-import vo.BoardBean;
+
+import net.board.svc.BoardDetailService;
+import net.board.vo.ActionForward;
+import net.board.vo.BoardBean;
 
 public class Board2ReplyFormAction implements Action {
 

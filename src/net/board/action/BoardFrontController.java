@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.board.vo.ActionForward;
 import net.member.action.MemberDeleteAction;
 import net.member.action.MemberFindAction;
 import net.member.action.MemberIDCheckAction;
@@ -15,7 +16,6 @@ import net.member.action.MemberLoginAction;
 import net.member.action.MemberModifyAction_1;
 import net.member.action.MemberModifyAction_2;
 import net.member.action.MemberZipcodeAction;
-import vo.ActionForward;
 
 @WebServlet("*.bo")
 public class BoardFrontController extends javax.servlet.http.HttpServlet {

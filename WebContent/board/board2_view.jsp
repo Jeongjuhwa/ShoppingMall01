@@ -1,4 +1,4 @@
-<%@page import="vo.BoardBean"%>
+<%@page import="net.board.vo.BoardBean"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 
 <%
@@ -72,7 +72,7 @@ h2 {
 			href="board2ModifyForm.bo?board_num=<%=article.getBOARD_NUM()%>">
 			[수정] </a> <a
 			href="board2DeleteForm.bo?board_num=<%=article.getBOARD_NUM()%>&page=<%=nowPage%>">
-			[삭제] </a> <a href="board2List.bo?page=<%=nowPage%>">[목록]</a>&nbsp;&nbsp;
+			[삭제] </a> <a href="board2List.bo">[목록]</a>&nbsp;&nbsp;
 	</section>
 </body>
 </html>

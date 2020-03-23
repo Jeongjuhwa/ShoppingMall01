@@ -1,13 +1,15 @@
-package svc;
+package net.board.svc;
 
-import static net.board.db.JdbcUtil.*;
+import static net.board.db.JdbcUtil.close;
+import static net.board.db.JdbcUtil.commit;
+import static net.board.db.JdbcUtil.getConnection;
+import static net.board.db.JdbcUtil.rollback;
 
 import java.sql.Connection;
 
 import net.board.db.BoardDAO;
-import vo.BoardBean;
 
-public class BoardModifyProService {
+public class BoardDeleteProService {
 
 	public boolean isArticleWriter(int board_num, String pass, String target) throws Exception {
 		// TODO Auto-generated method stub
@@ -22,25 +24,24 @@ public class BoardModifyProService {
 
 	}
 
-	public boolean modifyArticle(BoardBean article, String target) throws Exception {
+	public boolean removeArticle(int board_num, String target) throws Exception {
 		// TODO Auto-generated method stub
 
-		boolean isModifySuccess = false;
+		boolean isRemoveSuccess = false;
 		Connection con = getConnection();
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		boardDAO.setConnection(con);
-		int updateCount = boardDAO.updateArticle(article, target);
+		int deleteCount = boardDAO.deleteArticle(board_num, target);
 
-		if (updateCount > 0) {
+		if (deleteCount > 0) {
 			commit(con);
-			isModifySuccess = true;
+			isRemoveSuccess = true;
 		} else {
 			rollback(con);
 		}
 
 		close(con);
-		return isModifySuccess;
-
+		return isRemoveSuccess;
 	}
 
 }

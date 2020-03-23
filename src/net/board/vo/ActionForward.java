@@ -1,4 +1,4 @@
-package vo;
+package net.board.vo;
 
 public class ActionForward {
 	private boolean isRedirect = false;

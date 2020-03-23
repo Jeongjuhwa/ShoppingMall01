@@ -3,8 +3,9 @@ package net.board.action;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import svc.BoardDeleteProService;
-import vo.ActionForward;
+
+import net.board.svc.BoardDeleteProService;
+import net.board.vo.ActionForward;
 
 public class Board1DeleteProAction implements Action {
 

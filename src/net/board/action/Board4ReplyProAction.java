@@ -3,9 +3,10 @@ package net.board.action;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import svc.BoardReplyProService;
-import vo.ActionForward;
-import vo.BoardBean;
+
+import net.board.svc.BoardReplyProService;
+import net.board.vo.ActionForward;
+import net.board.vo.BoardBean;
 
 public class Board4ReplyProAction implements Action {
 

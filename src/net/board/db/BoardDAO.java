@@ -8,7 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.sql.DataSource;
-import vo.BoardBean;
+
+import net.board.vo.BoardBean;
 
 public class BoardDAO {
 
@@ -208,7 +209,7 @@ public class BoardDAO {
 				num = rs.getInt(1) + 1;
 			else
 				num = 1;
-			sql = "update board set BOARD_RE_SEQ=BOARD_RE_SEQ+1 where BOARD_RE_REF=? ";
+			sql = "update " + target + " set BOARD_RE_SEQ=BOARD_RE_SEQ+1 where BOARD_RE_REF=? ";
 			sql += "and BOARD_RE_SEQ>?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, re_ref);
@@ -226,7 +227,7 @@ public class BoardDAO {
 			// sql+="BOARD_CONTENT, BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,BOARD_RE_SEQ,";
 			// sql+="BOARD_READCOUNT,BOARD_DATE) values(?,?,?,?,?,?,?,?,?,?,now())";
 
-			sql = "insert into board (BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,";
+			sql = "insert into " + target + " (BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,";
 			sql += "BOARD_CONTENT, BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,BOARD_RE_SEQ,";
 			sql += "BOARD_READCOUNT,BOARD_DATE) values(?,?,?,?,?,?,?,?,?,?,sysdate)";
 
@@ -243,7 +244,7 @@ public class BoardDAO {
 			pstmt.setInt(10, 0);
 			insertCount = pstmt.executeUpdate();
 		} catch (SQLException ex) {
-			System.out.println("boardReply ���� : " + ex);
+			System.out.println("boardReply 오류 : " + ex);
 		} finally {
 			close(rs);
 			close(pstmt);

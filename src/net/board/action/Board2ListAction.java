@@ -3,10 +3,11 @@ package net.board.action;
 import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import svc.BoardListService;
-import vo.ActionForward;
-import vo.BoardBean;
-import vo.PageInfo;
+
+import net.board.svc.BoardListService;
+import net.board.vo.ActionForward;
+import net.board.vo.BoardBean;
+import net.board.vo.PageInfo;
 
 public class Board2ListAction implements Action {
 

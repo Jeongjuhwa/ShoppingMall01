@@ -1,33 +1,32 @@
-package svc;
+package net.board.svc;
 
 import static net.board.db.JdbcUtil.*;
 
 import java.sql.Connection;
 
 import net.board.db.BoardDAO;
-import vo.BoardBean;
+import net.board.vo.BoardBean;
 
-public class BoardReplyProService {
+public class BoardWriteProService {
 
-	public boolean replyArticle(BoardBean article, String target) throws Exception {
+	public boolean registArticle(BoardBean boardBean, String target) throws Exception {
 		// TODO Auto-generated method stub
 
-		boolean isReplySuccess = false;
-		int insertCount = 0;
+		boolean isWriteSuccess = false;
 		Connection con = getConnection();
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		boardDAO.setConnection(con);
-		insertCount = boardDAO.insertReplyArticle(article, target);
+		int insertCount = boardDAO.insertArticle(boardBean, target);
 
 		if (insertCount > 0) {
 			commit(con);
-			isReplySuccess = true;
+			isWriteSuccess = true;
 		} else {
 			rollback(con);
 		}
 
 		close(con);
-		return isReplySuccess;
+		return isWriteSuccess;
 
 	}
 

@@ -4,11 +4,13 @@ import java.io.PrintWriter;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import svc.BoardWriteProService;
-import vo.ActionForward;
-import vo.BoardBean;
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import net.board.svc.BoardWriteProService;
+import net.board.vo.ActionForward;
+import net.board.vo.BoardBean;
 
 public class Board3WriteProAction implements Action {
 

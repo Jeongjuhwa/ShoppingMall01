@@ -1,5 +1,5 @@
-<%@ page import="vo.PageInfo"%>
-<%@ page import="vo.BoardBean"%>
+<%@ page import="net.board.vo.PageInfo"%>
+<%@ page import="net.board.vo.BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
@@ -95,7 +95,7 @@ hr {
 
 table {
 	border: 1px solid #bcbcbc;
-	width: 90%;
+	width: 85%;
 	font-size: 20px;
 	color: white;
 	margin-left: auto;
@@ -105,7 +105,8 @@ table {
 th {
 	border: 1px solid #bcbcbc;
 	font-size: 20px;
-	color: white;
+	color: black;
+	background-color: gray;
 }
 
 a {
@@ -122,6 +123,13 @@ p {
 	font-size: 16px;
 	color: white;
 	border: 1px solid #bcbcbc;
+}
+
+.tds2 {
+	font-size: 16px;
+	color: white;
+	border: 1px solid #bcbcbc;
+	text-align: left;
 }
 
 #pageList {
@@ -258,7 +266,7 @@ body {
 				<tr>
 					<td class="tds"><%=articleList.get(i).getBOARD_NUM()%></td>
 
-					<td class="tds">
+					<td class="tds2">
 						<%
 							if (articleList.get(i).getBOARD_RE_LEV() != 0) {
 						%> <%

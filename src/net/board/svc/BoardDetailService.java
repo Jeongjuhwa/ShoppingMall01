@@ -1,11 +1,11 @@
-package svc;
+package net.board.svc;
 
 import static net.board.db.JdbcUtil.*;
 
 import java.sql.Connection;
 
 import net.board.db.BoardDAO;
-import vo.BoardBean;
+import net.board.vo.BoardBean;
 
 public class BoardDetailService {
 
