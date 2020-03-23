@@ -1,7 +1,56 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
 <title>쇼핑몰</title>
+<style>
+.box-left {
+	flex: 1;
+	float: left;
+	flex-basis: 100px;
+	font-size: 15px;
+}
+
+.box-right {
+	flex: 1;
+	flex-basis: 150px;
+	text-align: right;
+	display: inline-block;
+	margin-left: 1110px;
+}
+
+body {
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-bottom: 20px;
+	line-height: 1.7em;
+}
+
+h4 {
+	font-family: cursive;
+	font-size: 35px;
+	text-align: center;
+	margin-bottom: 3px;
+	margin-top: 90px;
+}
+
+h6 {
+	text-align: center;
+	margin-top: 5px;
+	font-size: 12px;
+	margin-bottom: 60px;
+}
+
+.join {
+	font-family: monospace;
+	font-size: 13px;
+}
+
+.list {
+	
+}
+</style>
 <script>
 function check(){
 	var id=joinform.MEMBER_ID.value;
@@ -118,155 +167,95 @@ function gNumCheck(){
 </script>
 </head>
 <body>
-<table width="960" cellspacing="0" cellpadding="0" border="0" align="center">
-	<tr>
-	<td colspan=2>
-	<!-- 회원가입 -->
-	<form name="joinform" action="./MemberJoinAction.me" method="post" 
-		onsubmit="return check()">		
-	<p align="center">	
-	<table border="1" width="80%" height="80%">
-	<tr>
-		<td width="17%" bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;이름</font>
-		</td>
-		<td>
-			&nbsp;&nbsp;&nbsp;
-			<input type="text" name="MEMBER_NAME" size="20"/>
-		</td>
-	</tr>
-	<tr>
-		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;아이디</font>
-		</td>
-		<td>
-			&nbsp;&nbsp;&nbsp;
-			<input type="text" name="MEMBER_ID" size="10" maxlength=15/>
-			<input type="button" name="confirm_id" value="중복확인" 
-				onclick="openConfirmId(this.form)" />
-		</td>
-	</tr>
-	<tr>
-		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;비밀번호</font>
-		</td>
-		<td>
-			&nbsp;&nbsp;&nbsp;
-			<input type="password" name="MEMBER_PW" size="15"/>
-		</td>
-	</tr>
-	<tr>
-		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;비밀번호 확인</font>
-		</td>
-		<td>
-			&nbsp;&nbsp;&nbsp;
-			<input type="password" name="MEMBER_PW2" size="15" />
-		</td>
-	</tr>
-	<tr>
-		<td bgcolor="#f5f5f5">&nbsp;</td>
-		<td>
-		<font size="2">&nbsp;&nbsp;&nbsp;
-		(아이디와 비밀번호는 문자와 숫자를 조합하여 2~12자리로 만들어 주세요)</font>
-		</td>
-	</tr>
-	<tr>
-		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;주민등록번호</font>
-		</td>
-		<td>
-			&nbsp;&nbsp;&nbsp;
-			<input type="text" name="MEMBER_JUMIN1" size="12" 
-				onkeypress="gNumCheck()" maxlength="6"/>-	
-			<input type="text" name="MEMBER_JUMIN2" size="12" 
-				onkeypress="gNumCheck()" maxlength="7"/>
-		</td>
-	</tr>
-	<tr>
-		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;이메일 주소</font>
-		</td>
-		<td>
-			&nbsp;&nbsp;&nbsp;
-			<input type="text" name="MEMBER_EMAIL1" size="13"/>@
-			<input type="text" name="MEMBER_EMAIL2" size="15"/> 
-		</td>
+	<h4>JOIN US</h4>
+	<h6>Welcome to gorgeous!</h6>
+	<br>
+
+	<div class="join">
+		<div class="1">
+			<hr>
+			회원구분*&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <input
+				type="radio" name="customer" value="개인" />개인회원 <input type="radio"
+				name="customer" value="사업자" />사업자회원
+			<hr>
+		</div>
+		<br> <strong><div class="box-left">기본정보</div></strong>
+		<div class="box-right">필수입력사항*</div>
+
+		<div class="list">
+			<hr>
+			아이디*<input type="text" name="MEMBER_ID"
+				style="width: 140px; height: 20px;" display="flex;" /> (영문소문자/숫자,
+			4~16자)
+		</div>
+		<hr>
+		비밀번호*<input type="text" name="MEMBER_ID"
+			style="width: 140px; height: 20px;" display="flex;" />(영문
+		대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자)<br>
+		<hr>
+		비밀번호 확인*<input type="text" name="MEMBER_ID"
+			style="width: 140px; height: 20px;" display="flex;" /><br>
+		<hr>
+		이름*<input type="text" name="MEMBER_ID"
+			style="width: 140px; height: 20px;" display="flex;" /> <br>
+		<hr>
+		주소*
+		<tr>
+			<td bgcolor="#f5f5f5"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;</font></td>
+			<td>&nbsp;&nbsp;&nbsp; <input type="text" name="MEMBER_ZIPCODE1"
+				size="6" onkeypress="gNumCheck()" maxlength="3" />- <input
+				type="text" name="MEMBER_ZIPCODE2" size="6" onkeypress="gNumCheck()"
+				maxlength="3" />&nbsp;&nbsp; <input type="button" name="zipcode"
+				value="우편번호 검색" onclick="openZipcode(this.form)" />
+		<tr>
+			<td bgcolor="#f5f5f5"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;<br>기본주소
+			</font></td>
+			<td>&nbsp;&nbsp;&nbsp;<input type="text" name="MEMBER_ADDR1"
+				size="50" />
 		</tr>
 		<tr>
-		<td bgcolor="#f5f5f5">
-		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;메일 수신 여부</font>
-		</td>
-		<td>
-		&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="MEMBER_EMAIL_GET" value="YES" checked/>
-		<font size="2">수신</font>
-		&nbsp;&nbsp;<input type="radio" name="MEMBER_EMAIL_GET" value="NO"/>
-		<font size="2">수신 안함</font>
+			<td bgcolor="#f5f5f5"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;<br>상세주소
+			</font></td>
+			<td>&nbsp;&nbsp;&nbsp; <input type="text" name="MEMBER_ADDR2"
+				size="50" />
+			</td>
+		</tr>
 		</td>
 		</tr>
-		<tr>
-			<td bgcolor="#f5f5f5">
-				<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;집전화</font>
-			</td>
-			<td>
-				&nbsp;&nbsp;&nbsp;
-				<input type="text" name="MEMBER_PHONE" size="24"/>
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#f5f5f5">
-				<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;우편번호</font>
-			</td>
-			<td>
-			&nbsp;&nbsp;&nbsp;
-			<input type="text" name="MEMBER_ZIPCODE1" size="6" 
-				onkeypress="gNumCheck()" maxlength="3"/>- 
-			<input type="text" name="MEMBER_ZIPCODE2" size="6" 
-				onkeypress="gNumCheck()" maxlength="3" />&nbsp;&nbsp;
-			<input type="button" name="zipcode" value="우편번호 검색" 
-				onclick="openZipcode(this.form)" />
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#f5f5f5">
-				<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;집주소</font>
-			</td>
-			<td>
-				&nbsp;&nbsp;&nbsp;
-				<input type="text" name="MEMBER_ADDR1" size="50" />
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#f5f5f5">
-				<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;상세주소</font>
-			</td>
-			<td>
-				&nbsp;&nbsp;&nbsp;
-				<input type="text" name="MEMBER_ADDR2" size="50" />
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#f5f5f5">
-				<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;휴대폰</font>
-			</td>
-			<td>
-				&nbsp;&nbsp;&nbsp;
-				<input type="text" name="MEMBER_MOBILE" size="24" />
-				</td>
-			</tr>
-		</table>
-		<table width="80%">
-			<tr>
-				<td align="center">
-					<br/><input type="submit" value="확 인" />
-				</td>
-			</tr>
-		</table>
-		</form>
-		<!-- 회원가입 -->	
-		</td>
-	</tr>
-</table>
+		<br>
+		<hr>
+		일반전화 <input type="text" name="MEMBER_ZIPCODE1" size="6"
+			onkeypress="gNumCheck()" maxlength="3" />- <input type="text"
+			name="MEMBER_ZIPCODE2" size="6" onkeypress="gNumCheck()"
+			maxlength="3" />- <input type="text" name="MEMBER_ZIPCODE2" size="6"
+			onkeypress="gNumCheck()" maxlength="3" /> <br>
+		<hr>
+		휴대전화* <input type="text" name="MEMBER_ZIPCODE1" size="6"
+			onkeypress="gNumCheck()" maxlength="3" />- <input type="text"
+			name="MEMBER_ZIPCODE2" size="6" onkeypress="gNumCheck()"
+			maxlength="3" />- <input type="text" name="MEMBER_ZIPCODE2" size="6"
+			onkeypress="gNumCheck()" maxlength="3" /> <br>
+		<hr>
+		이메일*
+		<td>&nbsp;&nbsp;&nbsp;<input type="text" name="MEMBER_EMAIL1"
+			size="13" />&nbsp;@&nbsp;<input type="text" name="MEMBER_EMAIL2"
+			size="15" /></td>
+		<br>
+		<hr>
+		<br>
+		<br> <strong><div class="box-left">추가정보</div></strong> <br>
+		<hr>
+		생년월일 <input type="text" name="MEMBER_ZIPCODE1" size="6"
+			onkeypress="gNumCheck()" maxlength="3" />년 <input type="text"
+			name="MEMBER_ZIPCODE2" size="6" onkeypress="gNumCheck()"
+			maxlength="3" />월 <input type="text" name="MEMBER_ZIPCODE2" size="6"
+			onkeypress="gNumCheck()" maxlength="3" />일<input type="radio"
+			name="customer" value="개인" />양력 <input type="radio" name="customer"
+			value="사업자" />음력
+		<hr>
+		<br> <strong><div class="box-left">전체동의</div></strong>
+
+	</div>
+
 </body>
 </html>

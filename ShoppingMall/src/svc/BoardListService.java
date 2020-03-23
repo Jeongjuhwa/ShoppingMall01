@@ -1,21 +1,23 @@
 package svc;
 
-import static db.JdbcUtil.*;
+import static net.board.db.JdbcUtil.*;
+
 import java.sql.Connection;
 import java.util.ArrayList;
-import dao.BoardDAO;
+
+import net.board.db.BoardDAO;
 import vo.BoardBean;
 
 public class BoardListService {
 
-	public int getListCount() throws Exception {
+	public int getListCount(String target) throws Exception {
 		// TODO Auto-generated method stub
 
 		int listCount = 0;
 		Connection con = getConnection();
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		boardDAO.setConnection(con);
-		listCount = boardDAO.selectListCount();
+		listCount = boardDAO.selectListCount(target);
 		close(con);
 		return listCount;
 

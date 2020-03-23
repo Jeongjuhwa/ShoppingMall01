@@ -30,7 +30,7 @@ public class MemberDeleteAction implements Action{
 				response.setContentType("text/html; charset=euc-kr");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
-				out.println("alert('ºñ¹Ð¹øÈ£°¡ ¸ÂÁö¾Ê½À´Ï´Ù.');");
+				out.println("alert('ë¹„ë°€ë²ˆí˜¸ê°€ ë§žì§€ ì•ŠìŠµë‹ˆë‹¤.');");
 				out.println("history.go(-1);");
 				out.println("</script>");
 				out.close();

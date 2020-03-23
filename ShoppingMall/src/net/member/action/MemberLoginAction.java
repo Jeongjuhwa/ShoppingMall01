@@ -6,39 +6,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import net.member.db.MemberDAO;
-public class MemberLoginAction implements Action{
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
-	throws Exception{
-		HttpSession session=request.getSession();
-		ActionForward forward=new ActionForward();
-		MemberDAO memberdao=new MemberDAO();		
-		String id=request.getParameter("MEMBER_ID");
-		String pass=request.getParameter("MEMBER_PW");		
-		int check=memberdao.userCheck(id, pass);
-		if(check == 1){
+
+public class MemberLoginAction implements Action {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		ActionForward forward = new ActionForward();
+		MemberDAO memberdao = new MemberDAO();
+		String id = request.getParameter("MEMBER_ID");
+		String pass = request.getParameter("MEMBER_PW");
+		int check = memberdao.userCheck(id, pass);
+		if (check == 1) {
 			session.setAttribute("id", id);
-  			if(memberdao.isAdmin(id)){
+			if (memberdao.isAdmin(id)) { // admin ê³„ì •
 				forward.setRedirect(true);
-				forward.setPath("./GoodsList.ag"); 
+				// forward.setPath("./GoodsList.ag");
+				forward.setPath("./index2.jsp");
 				return forward;
-			}else{
+			} else { // ì¼ë°˜ ê³„ì •
 				forward.setRedirect(true);
-				forward.setPath("./GoodsList.go?item=new_item"); 
+				// forward.setPath("./GoodsList.go?item=new_item");
+				forward.setPath("./index2.jsp");
 				return forward;
 			}
-		}else if(check == 0){
-			response.setContentType("text/html; charset=euc-kr");
+		} else if (check == 0) { // ë¹„ë°€ë²ˆí˜¸ ë¶ˆì¼ì¹˜
+			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');");
+			out.println("alert('ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');");
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
-		}else{
-			response.setContentType("text/html; charset=euc-kr");
+		} else {
+			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('¾ÆÀÌµğ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.');");
+			out.println("alert('ì•„ì´ë””ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');");
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();

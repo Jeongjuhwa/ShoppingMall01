@@ -88,7 +88,7 @@ h3 {
 	text-align: center;
 	margin-top: 15px;
 	word-spacing: 40px;
-	font-style: italic;
+
 }
 
 ul {
@@ -143,11 +143,11 @@ li {
 	<div id="wrap">
 		<div class="kk">
 			<div>
-				<a href="MemberLogin.bo">LOG_IN</a>
+				<a href="../MemberLogin.me">LOG_IN</a>
 				CART(0)
-				<a href="board1List.bo">NOTICE</a>
-				<a href="board2List.bo">REVIEW</a> 
-				<a href="board3List.bo">Q&A</a>
+				<a href="../board1List.bo">NOTICE</a>
+				<a href="../board2List.bo">REVIEW</a> 
+				<a href="../board3List.bo">Q&A</a>
 				<a href="">FAQ</a>
 			</div>
 	
