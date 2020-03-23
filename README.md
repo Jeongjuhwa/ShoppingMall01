@@ -12,9 +12,7 @@ Download link : https://www.oracle.com/java/technologies/javase-jdk11-downloads.
 
 ## 3. Set Java Build Path
 ```
-git clone https://github.com/wnameless/docker-oracle-xe-11g.git
-cd docker-oracle-xe-11g
-docker build -t wnameless/oracle-xe-11g .
+Set jar file from build path (/ShoppingMall01/WebContent/WEB-INF/lib) 
 ```
 
 ## Installation(DockerHub)
