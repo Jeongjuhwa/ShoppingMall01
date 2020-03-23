@@ -1,4 +1,4 @@
-## 1. Java SE Development Kit 11 install
+## 1. Install Java SE Development Kit 11
 
 Java SE 11.0.6 (LTS; Long Term Support) is the latest release for the Java SE 11 Platform
 
