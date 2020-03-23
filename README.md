@@ -1,15 +1,10 @@
 Java SE Development Kit 11 install
 ============================
 
+Java SE 11.0.6 (LTS; Long Term Support) is the latest release for the Java SE 11 Platform
 
-https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
-Oracle Express Edition 11g Release 2 on Ubuntu 18.04 LTS
+Download link : https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
 
-<del>This **Dockerfile** is a [trusted build](https://registry.hub.docker.com/u/wnameless/oracle-xe-11g/) of [Docker Registry](https://registry.hub.docker.com/).</del>
-
-<del>Since 2019-Feb-13(the Valentine's day eve) this docker image has been removed by DockerHub due to the Docker DMCA Takedown Notice from the Copyright owner which is the Oracle.</del>
-
-<del>Happy Valentine's day!</del>
 
 ```diff
 + The new DockerHub [wnameless/oracle-xe-11g-r2] has been released, because
