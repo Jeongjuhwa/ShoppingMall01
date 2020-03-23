@@ -1,18 +1,10 @@
-Java SE Development Kit 11 install
-============================
+## 1. Java SE Development Kit 11 install
 
 Java SE 11.0.6 (LTS; Long Term Support) is the latest release for the Java SE 11 Platform
 
 Download link : https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
 
 
-```diff
-+ The new DockerHub [wnameless/oracle-xe-11g-r2] has been released, because
-+ the old [wnameless/oracle-xe-11g] is banned by DockerHub and I cannot restore it.
-+ Thanks for the help from the staff in Oracle with my DMCA Takedown issue, however this problem
-+ is totally ignored by the DockerHub and I barely can't do anything but to open a new repo.
-+ Sep 29 2019
-```
 
 ## Installation(Local)
 ```
