@@ -40,7 +40,7 @@ Set your DB portnumber, username, password for connection
 ```
 
 
-## 6. excute CreateBoard.sql
+## 6. Excute CreateBoard.sql
 
 ```
 create table board1 ~ 4
