@@ -1,6 +1,8 @@
-docker-oracle-xe-11g
+Java SE Development Kit 11 install
 ============================
 
+
+https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
 Oracle Express Edition 11g Release 2 on Ubuntu 18.04 LTS
 
 <del>This **Dockerfile** is a [trusted build](https://registry.hub.docker.com/u/wnameless/oracle-xe-11g/) of [Docker Registry](https://registry.hub.docker.com/).</del>
