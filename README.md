@@ -12,7 +12,7 @@ Download link : https://www.oracle.com/java/technologies/javase-jdk11-downloads.
 
 ## 3. Set Java Build Path
 ```
-Set jar file from build path (/ShoppingMall01/WebContent/WEB-INF/lib) 
+Set jar file from build path (~/ShoppingMall01/WebContent/WEB-INF/lib) 
 ```
 
 ## Installation(DockerHub)
