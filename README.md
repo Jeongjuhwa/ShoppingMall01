@@ -25,7 +25,6 @@ Set your server (ex: apache 8.5, java SE 11)
 ```
 ## 5. Set file (context.xml, web.xml)
 
-```
 <Resource name="jdbc/OracleDB" 
          auth="Container"
          type="javax.sql.DataSource" 
@@ -36,7 +35,6 @@ Set your server (ex: apache 8.5, java SE 11)
          url="jdbc:oracle:thin:@localhost:1521:xe"
          maxActive="500" 
          maxIdle="100"/> 
-```
 
 
 ## 6. excute CreateBoard.sql
