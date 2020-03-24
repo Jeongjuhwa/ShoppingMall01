@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>gorgeous - FAQ</title>
+<title>MVC 게시판</title>
 <style>
 #passForm {
 	width: 400px;
@@ -19,7 +19,7 @@
 <body>
 	<section id="passForm">
 		<form name="deleteForm"
-			action="board4DeletePro.bo?board_num=<%=board_num%>" method="post">
+			action="boardDeletePro.bo?board_num=<%=board_num%>" method="post">
 			<input type="hidden" name="page" value="<%=nowPage%>" />
 			<table>
 				<tr>

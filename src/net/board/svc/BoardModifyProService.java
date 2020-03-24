@@ -9,27 +9,27 @@ import net.board.vo.BoardBean;
 
 public class BoardModifyProService {
 
-	public boolean isArticleWriter(int board_num, String pass, String target) throws Exception {
+	public boolean isArticleWriter(int board_num, String pass) throws Exception {
 		// TODO Auto-generated method stub
 
 		boolean isArticleWriter = false;
 		Connection con = getConnection();
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		boardDAO.setConnection(con);
-		isArticleWriter = boardDAO.isArticleBoardWriter(board_num, pass, target);
+		isArticleWriter = boardDAO.isArticleBoardWriter(board_num, pass);
 		close(con);
 		return isArticleWriter;
 
 	}
 
-	public boolean modifyArticle(BoardBean article, String target) throws Exception {
+	public boolean modifyArticle(BoardBean article) throws Exception {
 		// TODO Auto-generated method stub
 
 		boolean isModifySuccess = false;
 		Connection con = getConnection();
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		boardDAO.setConnection(con);
-		int updateCount = boardDAO.updateArticle(article, target);
+		int updateCount = boardDAO.updateArticle(article);
 
 		if (updateCount > 0) {
 			commit(con);

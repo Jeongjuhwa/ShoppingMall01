@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>gorgeous - NOTICE</title>
+<title>MVC 게시판</title>
 <script language="javascript">
 	
 </script>
@@ -50,7 +50,7 @@ table {
 
 	<section id="writeForm">
 		<h2>게시판글등록</h2>
-		<form action="board1ReplyPro.bo" method="post" name="boardform">
+		<form action="boardReplyPro.bo" method="post" name="boardform">
 			<input type="hidden" name="page" value="<%=nowPage%>" /> <input
 				type="hidden" name="BOARD_NUM" value="<%=article.getBOARD_NUM()%>">
 			<input type="hidden" name="BOARD_RE_REF"

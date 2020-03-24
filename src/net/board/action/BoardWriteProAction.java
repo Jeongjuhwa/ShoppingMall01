@@ -12,7 +12,7 @@ import net.board.svc.BoardWriteProService;
 import net.board.vo.ActionForward;
 import net.board.vo.BoardBean;
 
-public class Board2WriteProAction implements Action {
+public class BoardWriteProAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
@@ -34,7 +34,7 @@ public class Board2WriteProAction implements Action {
 		boardBean.setBOARD_CONTENT(multi.getParameter("BOARD_CONTENT"));
 		boardBean.setBOARD_FILE(multi.getOriginalFileName((String) multi.getFileNames().nextElement()));
 		BoardWriteProService boardWriteProService = new BoardWriteProService();
-		boolean isWriteSuccess = boardWriteProService.registArticle(boardBean, "board2");
+		boolean isWriteSuccess = boardWriteProService.registArticle(boardBean);
 
 		if (!isWriteSuccess) {
 			response.setContentType("text/html;charset=UTF-8");
@@ -46,7 +46,7 @@ public class Board2WriteProAction implements Action {
 		} else {
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("board2List.bo");
+			forward.setPath("boardList.bo");
 		}
 
 		return forward;

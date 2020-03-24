@@ -9,14 +9,14 @@ import net.board.vo.BoardBean;
 
 public class BoardWriteProService {
 
-	public boolean registArticle(BoardBean boardBean, String target) throws Exception {
+	public boolean registArticle(BoardBean boardBean) throws Exception {
 		// TODO Auto-generated method stub
 
 		boolean isWriteSuccess = false;
 		Connection con = getConnection();
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		boardDAO.setConnection(con);
-		int insertCount = boardDAO.insertArticle(boardBean, target);
+		int insertCount = boardDAO.insertArticle(boardBean);
 
 		if (insertCount > 0) {
 			commit(con);

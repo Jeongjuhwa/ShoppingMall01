@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>gorgeous - REVIEW</title>
+<title>MVC 게시판</title>
 <script type="text/javascript">
 	function modifyboard(){
 		modifyform.submit();
@@ -51,7 +51,7 @@ table {
 
 	<section id="writeForm">
 		<h2>게시판글수정</h2>
-		<form action="board2ModifyPro.bo" method="post" name="modifyform">
+		<form action="boardModifyPro.bo" method="post" name="modifyform">
 			<input type="hidden" name="BOARD_NUM"
 				value="<%=article.getBOARD_NUM()%>" />
 			<table>

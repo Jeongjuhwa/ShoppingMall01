@@ -8,7 +8,7 @@ import net.board.svc.BoardReplyProService;
 import net.board.vo.ActionForward;
 import net.board.vo.BoardBean;
 
-public class Board1ReplyProAction implements Action {
+public class BoardReplyProAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
@@ -24,17 +24,17 @@ public class Board1ReplyProAction implements Action {
 		article.setBOARD_RE_LEV(Integer.parseInt(request.getParameter("BOARD_RE_LEV")));
 		article.setBOARD_RE_SEQ(Integer.parseInt(request.getParameter("BOARD_RE_SEQ")));
 		BoardReplyProService boardReplyProService = new BoardReplyProService();
-		boolean isReplySuccess = boardReplyProService.replyArticle(article, "board1");
+		boolean isReplySuccess = boardReplyProService.replyArticle(article);
 
 		if (isReplySuccess) {
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("board1List.bo?page=" + nowPage);
+			forward.setPath("boardList.bo?page=" + nowPage);
 		} else {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('답글 만들기 실패')");
+			out.println("alert('�������')");
 			out.println("history.back()");
 			out.println("</script>");
 		}

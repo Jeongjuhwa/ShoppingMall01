@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>gorgeous - REVIEW</title>
+<title>MVC 게시판</title>
 <style type="text/css">
 #articleForm {
 	width: 500px;
@@ -67,12 +67,12 @@ h2 {
 	</section>
 	<section id="commandList">
 		<a
-			href="board2ReplyForm.bo?board_num=<%=article.getBOARD_NUM()%>&page=<%=nowPage%>">
+			href="boardReplyForm.bo?board_num=<%=article.getBOARD_NUM()%>&page=<%=nowPage%>">
 			[답변] </a> <a
-			href="board2ModifyForm.bo?board_num=<%=article.getBOARD_NUM()%>">
+			href="boardModifyForm.bo?board_num=<%=article.getBOARD_NUM()%>">
 			[수정] </a> <a
-			href="board2DeleteForm.bo?board_num=<%=article.getBOARD_NUM()%>&page=<%=nowPage%>">
-			[삭제] </a> <a href="board2List.bo">[목록]</a>&nbsp;&nbsp;
+			href="boardDeleteForm.bo?board_num=<%=article.getBOARD_NUM()%>&page=<%=nowPage%>">
+			[삭제] </a> <a href="boardList.bo?page=<%=nowPage%>">[목록]</a>&nbsp;&nbsp;
 	</section>
 </body>
 </html>

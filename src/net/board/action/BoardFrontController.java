@@ -8,14 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.board.vo.ActionForward;
-import net.member.action.MemberDeleteAction;
-import net.member.action.MemberFindAction;
-import net.member.action.MemberIDCheckAction;
-import net.member.action.MemberJoinAction;
-import net.member.action.MemberLoginAction;
-import net.member.action.MemberModifyAction_1;
-import net.member.action.MemberModifyAction_2;
-import net.member.action.MemberZipcodeAction;
 
 @WebServlet("*.bo")
 public class BoardFrontController extends javax.servlet.http.HttpServlet {
@@ -29,9 +21,16 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 
-		if (command.equals("/index.jsp")) {
+		if (command.equals("/boardWriteForm.bo")) {
 			forward = new ActionForward();
-			forward.setPath("/index.jsp");
+			forward.setPath("/board/board_write.jsp");
+		} else if (command.equals("/boardWritePro.bo")) {
+			action = new BoardWriteProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else if (command.equals("/boardList.bo")) {
 			action = new BoardListAction();
 			try {
@@ -39,243 +38,56 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/board1WriteForm.bo")) {
-			forward = new ActionForward();
-			forward.setPath("/board/board1_write.jsp");
-		} else if (command.equals("/board2WriteForm.bo")) {
-			forward = new ActionForward();
-			forward.setPath("/board/board2_write.jsp");
-		} else if (command.equals("/board3WriteForm.bo")) {
-			forward = new ActionForward();
-			forward.setPath("/board/board3_write.jsp");
-		} else if (command.equals("/board4WriteForm.bo")) {
-			forward = new ActionForward();
-			forward.setPath("/board/board4_write.jsp");
-		} else if (command.equals("/board1WritePro.bo")) {
-			action = new Board1WriteProAction();
+		} else if (command.equals("/boardDetail.bo")) {
+			action = new BoardDetailAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/board2WritePro.bo")) {
-			action = new Board2WriteProAction();
+		} else if (command.equals("/boardReplyForm.bo")) {
+			action = new BoardReplyFormAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/board3WritePro.bo")) {
-			action = new Board3WriteProAction();
+		} else if (command.equals("/boardReplyPro.bo")) {
+			action = new BoardReplyProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/board4WritePro.bo")) {
-			action = new Board4WriteProAction();
+		} else if (command.equals("/boardModifyForm.bo")) {
+			action = new BoardModifyFormAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/board1Detail.bo")) {
-			action = new Board1DetailAction();
+		} else if (command.equals("/boardModifyPro.bo")) {
+			action = new BoardModifyProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/board2Detail.bo")) {
-			action = new Board2DetailAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board3Detail.bo")) {
-			action = new Board3DetailAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board4Detail.bo")) {
-			action = new Board4DetailAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board1ReplyForm.bo")) {
-			action = new Board1ReplyFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board2ReplyForm.bo")) {
-			action = new Board2ReplyFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board3ReplyForm.bo")) {
-			action = new Board3ReplyFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board4ReplyForm.bo")) {
-			action = new Board4ReplyFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board1ReplyPro.bo")) {
-			action = new Board1ReplyProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}  else if (command.equals("/board2ReplyPro.bo")) {
-			action = new Board2ReplyProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board3ReplyPro.bo")) {
-			action = new Board3ReplyProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board4ReplyPro.bo")) {
-			action = new Board4ReplyProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if (command.equals("/board1ModifyForm.bo")) {
-			action = new Board1ModifyFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board2ModifyForm.bo")) {
-			action = new Board2ModifyFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board3ModifyForm.bo")) {
-			action = new Board3ModifyFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board4ModifyForm.bo")) {
-			action = new Board4ModifyFormAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board1ModifyPro.bo")) {
-			action = new Board1ModifyProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}  else if (command.equals("/board2ModifyPro.bo")) {
-			action = new Board2ModifyProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board3ModifyPro.bo")) {
-			action = new Board3ModifyProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board4ModifyPro.bo")) {
-			action = new Board4ModifyProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board1DeleteForm.bo")) {
+		} else if (command.equals("/boardDeleteForm.bo")) {
 			String nowPage = request.getParameter("page");
 			request.setAttribute("page", nowPage);
 			int board_num = Integer.parseInt(request.getParameter("board_num"));
 			request.setAttribute("board_num", board_num);
 			forward = new ActionForward();
-			forward.setPath("/board/board1_delete.jsp");
-		} else if (command.equals("/board2DeleteForm.bo")) {
-			String nowPage = request.getParameter("page");
-			request.setAttribute("page", nowPage);
-			int board_num = Integer.parseInt(request.getParameter("board_num"));
-			request.setAttribute("board_num", board_num);
-			forward = new ActionForward();
-			forward.setPath("/board/board2_delete.jsp");
-		} else if (command.equals("/board3DeleteForm.bo")) {
-			String nowPage = request.getParameter("page");
-			request.setAttribute("page", nowPage);
-			int board_num = Integer.parseInt(request.getParameter("board_num"));
-			request.setAttribute("board_num", board_num);
-			forward = new ActionForward();
-			forward.setPath("/board/board3_delete.jsp");
-		} else if (command.equals("/board4DeleteForm.bo")) {
-			String nowPage = request.getParameter("page");
-			request.setAttribute("page", nowPage);
-			int board_num = Integer.parseInt(request.getParameter("board_num"));
-			request.setAttribute("board_num", board_num);
-			forward = new ActionForward();
-			forward.setPath("/board/board4_delete.jsp");
-		} else if (command.equals("/board1DeletePro.bo")) {
-			action = new Board1DeleteProAction();
+			forward.setPath("/board/board_delete.jsp");
+		} else if (command.equals("/boardDeletePro.bo")) {
+			action = new BoardDeleteProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/board2DeletePro.bo")) {
-			action = new Board2DeleteProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board3DeletePro.bo")) {
-			action = new Board3DeleteProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/board4DeletePro.bo")) {
-			action = new Board4DeleteProAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} 
+		}
 
 		if (forward != null) {
 

@@ -32,7 +32,8 @@ public class BoardDAO {
 		this.con = con;
 	}
 
-	public int selectListCount(String target) {
+	// ���� ���� ���ϱ�.
+	public int selectListCount() {
 
 		int listCount = 0;
 		PreparedStatement pstmt = null;
@@ -41,7 +42,7 @@ public class BoardDAO {
 		try {
 
 			System.out.println("getConnection");
-			pstmt = con.prepareStatement("select count(*) from " + target);
+			pstmt = con.prepareStatement("select count(*) from board");
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -58,7 +59,8 @@ public class BoardDAO {
 
 	}
 
-	public ArrayList<BoardBean> selectArticleList(int page, int limit, String target) {
+	// �� ��� ����.
+	public ArrayList<BoardBean> selectArticleList(int page, int limit) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -66,7 +68,7 @@ public class BoardDAO {
 		String board_list_sql = "select * from " + "(select rownum rnum,BOARD_NUM,BOARD_NAME,BOARD_SUBJECT,"
 				+ "BOARD_CONTENT,BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,"
 				+ "BOARD_RE_SEQ,BOARD_READCOUNT,BOARD_DATE from "
-				+ "(select * from " + target +" order by BOARD_RE_REF desc,BOARD_RE_SEQ asc)) " + "where rnum>=? and rnum<=?";
+				+ "(select * from board order by BOARD_RE_REF desc,BOARD_RE_SEQ asc)) " + "where rnum>=? and rnum<=?";
 		ArrayList<BoardBean> articleList = new ArrayList<BoardBean>();
 		BoardBean board = null;
 		int startrow = (page - 1) * 10; // 읽기 시작할 row 번호..
@@ -104,14 +106,15 @@ public class BoardDAO {
 
 	}
 
-	public BoardBean selectArticle(int board_num, String target) {
+	// �� ���� ����.
+	public BoardBean selectArticle(int board_num) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		BoardBean boardBean = null;
 
 		try {
-			pstmt = con.prepareStatement("select * from " + target + " where BOARD_NUM = ?");
+			pstmt = con.prepareStatement("select * from board where BOARD_NUM = ?");
 			pstmt.setInt(1, board_num);
 			rs = pstmt.executeQuery();
 
@@ -139,7 +142,8 @@ public class BoardDAO {
 
 	}
 
-	public int insertArticle(BoardBean article, String target) {
+	// �� ���.
+	public int insertArticle(BoardBean article) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -161,7 +165,7 @@ public class BoardDAO {
 			// "BOARD_RE_LEV,BOARD_RE_SEQ,BOARD_READCOUNT,"+
 			// "BOARD_DATE) values(?,?,?,?,?,?,?,?,?,?,now())";
 
-			sql = "insert into " + target + " (BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,";
+			sql = "insert into board (BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,";
 			sql += "BOARD_CONTENT, BOARD_FILE, BOARD_RE_REF," + "BOARD_RE_LEV,BOARD_RE_SEQ,BOARD_READCOUNT,"
 					+ "BOARD_DATE) values(?,?,?,?,?,?,?,?,?,?,sysdate)";
 
@@ -190,11 +194,12 @@ public class BoardDAO {
 
 	}
 
-	public int insertReplyArticle(BoardBean article, String target) {
+	// �� �亯.
+	public int insertReplyArticle(BoardBean article) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String board_max_sql = "select max(board_num) from " + target;
+		String board_max_sql = "select max(board_num) from board";
 		String sql = "";
 		int num = 0;
 		int insertCount = 0;
@@ -209,7 +214,7 @@ public class BoardDAO {
 				num = rs.getInt(1) + 1;
 			else
 				num = 1;
-			sql = "update " + target + " set BOARD_RE_SEQ=BOARD_RE_SEQ+1 where BOARD_RE_REF=? ";
+			sql = "update board set BOARD_RE_SEQ=BOARD_RE_SEQ+1 where BOARD_RE_REF=? ";
 			sql += "and BOARD_RE_SEQ>?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, re_ref);
@@ -227,7 +232,7 @@ public class BoardDAO {
 			// sql+="BOARD_CONTENT, BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,BOARD_RE_SEQ,";
 			// sql+="BOARD_READCOUNT,BOARD_DATE) values(?,?,?,?,?,?,?,?,?,?,now())";
 
-			sql = "insert into " + target + " (BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,";
+			sql = "insert into board (BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,";
 			sql += "BOARD_CONTENT, BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,BOARD_RE_SEQ,";
 			sql += "BOARD_READCOUNT,BOARD_DATE) values(?,?,?,?,?,?,?,?,?,?,sysdate)";
 
@@ -237,14 +242,14 @@ public class BoardDAO {
 			pstmt.setString(3, article.getBOARD_PASS());
 			pstmt.setString(4, article.getBOARD_SUBJECT());
 			pstmt.setString(5, article.getBOARD_CONTENT());
-			pstmt.setString(6, ""); 
+			pstmt.setString(6, ""); // ���忡�� ������ ���ε����� ����.
 			pstmt.setInt(7, re_ref);
 			pstmt.setInt(8, re_lev);
 			pstmt.setInt(9, re_seq);
 			pstmt.setInt(10, 0);
 			insertCount = pstmt.executeUpdate();
 		} catch (SQLException ex) {
-			System.out.println("boardReply 오류 : " + ex);
+			System.out.println("boardReply ���� : " + ex);
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -254,11 +259,12 @@ public class BoardDAO {
 
 	}
 
-	public int updateArticle(BoardBean article, String target) {
+	// �� ����.
+	public int updateArticle(BoardBean article) {
 
 		int updateCount = 0;
 		PreparedStatement pstmt = null;
-		String sql = "update " + target + " set BOARD_SUBJECT=?,BOARD_CONTENT=? where BOARD_NUM=?";
+		String sql = "update board set BOARD_SUBJECT=?,BOARD_CONTENT=? where BOARD_NUM=?";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -267,7 +273,7 @@ public class BoardDAO {
 			pstmt.setInt(3, article.getBOARD_NUM());
 			updateCount = pstmt.executeUpdate();
 		} catch (Exception ex) {
-			System.out.println("boardModify 실패 : " + ex);
+			System.out.println("boardModify ���� : " + ex);
 		} finally {
 			close(pstmt);
 		}
@@ -276,10 +282,11 @@ public class BoardDAO {
 
 	}
 
-	public int deleteArticle(int board_num, String target) {
+	// �� ����.
+	public int deleteArticle(int board_num) {
 
 		PreparedStatement pstmt = null;
-		String board_delete_sql = "delete from " + target + " where BOARD_num=?";
+		String board_delete_sql = "delete from board where BOARD_num=?";
 		int deleteCount = 0;
 
 		try {
@@ -296,11 +303,12 @@ public class BoardDAO {
 
 	}
 
-	public int updateReadCount(int board_num, String target) {
+	// ��ȸ�� ������Ʈ.
+	public int updateReadCount(int board_num) {
 
 		PreparedStatement pstmt = null;
 		int updateCount = 0;
-		String sql = "update " + target + " set BOARD_READCOUNT = " + "BOARD_READCOUNT+1 where BOARD_NUM = " + board_num;
+		String sql = "update board set BOARD_READCOUNT = " + "BOARD_READCOUNT+1 where BOARD_NUM = " + board_num;
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -316,11 +324,12 @@ public class BoardDAO {
 
 	}
 
-	public boolean isArticleBoardWriter(int board_num, String pass, String target) {
+	// �۾������� Ȯ��.
+	public boolean isArticleBoardWriter(int board_num, String pass) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String board_sql = "select * from " + target + " where BOARD_NUM=?";
+		String board_sql = "select * from board where BOARD_NUM=?";
 		boolean isWriter = false;
 
 		try {

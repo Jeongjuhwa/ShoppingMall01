@@ -7,7 +7,7 @@ import net.board.svc.BoardDetailService;
 import net.board.vo.ActionForward;
 import net.board.vo.BoardBean;
 
-public class Board2ReplyFormAction implements Action {
+public class BoardReplyFormAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
@@ -15,10 +15,10 @@ public class Board2ReplyFormAction implements Action {
 		String nowPage = request.getParameter("page");
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		BoardDetailService boardDetailService = new BoardDetailService();
-		BoardBean article = boardDetailService.getArticle(board_num, "board2");
+		BoardBean article = boardDetailService.getArticle(board_num);
 		request.setAttribute("article", article);
 		request.setAttribute("page", nowPage);
-		forward.setPath("/board/board2_reply.jsp");
+		forward.setPath("/board/board_reply.jsp");
 		return forward;
 
 	}

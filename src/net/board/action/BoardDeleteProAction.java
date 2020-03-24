@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.board.svc.BoardDeleteProService;
 import net.board.vo.ActionForward;
 
-public class Board2DeleteProAction implements Action {
+public class BoardDeleteProAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
@@ -15,13 +15,13 @@ public class Board2DeleteProAction implements Action {
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		String nowPage = request.getParameter("page");
 		BoardDeleteProService boardDeleteProService = new BoardDeleteProService();
-		boolean isArticleWriter = boardDeleteProService.isArticleWriter(board_num, request.getParameter("BOARD_PASS"), "board2");
+		boolean isArticleWriter = boardDeleteProService.isArticleWriter(board_num, request.getParameter("BOARD_PASS"));
 
 		if (!isArticleWriter) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('비밀번호가 일치하지 않습니다.');");
+			out.println("alert('������ ������ �����ϴ�');");
 			out.println("history.back();");
 			out.println("</script>");
 			out.close();
@@ -29,20 +29,20 @@ public class Board2DeleteProAction implements Action {
 
 		else {
 
-			boolean isDeleteSuccess = boardDeleteProService.removeArticle(board_num, "board2");
+			boolean isDeleteSuccess = boardDeleteProService.removeArticle(board_num);
 
 			if (!isDeleteSuccess) {
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
-				out.println("alert('삭제에 실패하였습니다');");
+				out.println("alert('��������');");
 				out.println("history.back();");
 				out.println("</script>");
 				out.close();
 			} else {
 				forward = new ActionForward();
 				forward.setRedirect(true);
-				forward.setPath("board2List.bo?page=" + nowPage);
+				forward.setPath("boardList.bo?page=" + nowPage);
 			}
 
 		}
