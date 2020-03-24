@@ -13,7 +13,9 @@ public class BoardListAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+		String board_target = (String)request.getParameter("target");
 		ArrayList<BoardBean> articleList = new ArrayList<BoardBean>();
+		
 		int page = 1;
 		int limit = 10;
 
@@ -22,13 +24,10 @@ public class BoardListAction implements Action {
 		}
 
 		BoardListService boardListService = new BoardListService();
-		int listCount = boardListService.getListCount(); // �� ����Ʈ ���� �޾ƿ�.
-		articleList = boardListService.getArticleList(page, limit); // ����Ʈ�� �޾ƿ�.
-		// �� ������ ��.
-		int maxPage = (int) ((double) listCount / limit + 0.95); // 0.95�� ���ؼ� �ø� ó��.
-		// ���� �������� ������ ���� ������ ��(1, 11, 21 ��...)
+		int listCount = boardListService.getListCount(board_target); 
+		articleList = boardListService.getArticleList(page, limit, board_target); 
+		int maxPage = (int) ((double) listCount / limit + 0.95); 
 		int startPage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
-		// ���� �������� ������ ������ ������ ��.(10, 20, 30 ��...)
 		int endPage = startPage + 10 - 1;
 
 		if (endPage > maxPage)

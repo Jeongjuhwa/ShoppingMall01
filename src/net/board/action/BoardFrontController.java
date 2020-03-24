@@ -8,6 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.board.vo.ActionForward;
+import net.member.action.MemberDeleteAction;
+import net.member.action.MemberFindAction;
+import net.member.action.MemberIDCheckAction;
+import net.member.action.MemberJoinAction;
+import net.member.action.MemberLoginAction;
+import net.member.action.MemberModifyAction_1;
+import net.member.action.MemberModifyAction_2;
+import net.member.action.MemberZipcodeAction;
 
 @WebServlet("*.bo")
 public class BoardFrontController extends javax.servlet.http.HttpServlet {
@@ -21,18 +29,21 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 
-		if (command.equals("/boardWriteForm.bo")) {
+		if (command.equals("/index.jsp")) {
 			forward = new ActionForward();
-			forward.setPath("/board/board_write.jsp");
-		} else if (command.equals("/boardWritePro.bo")) {
-			action = new BoardWriteProAction();
+			forward.setPath("/index.jsp");
+		} else if (command.equals("/boardList.bo")) {
+			action = new BoardListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/boardList.bo")) {
-			action = new BoardListAction();
+		} else if (command.equals("/boardWriteForm.bo")) {
+			forward = new ActionForward();
+			forward.setPath("/board/board_write.jsp");
+		} else if (command.equals("/boardWritePro.bo")) {
+			action = new BoardWriteProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -87,7 +98,7 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} 
 
 		if (forward != null) {
 

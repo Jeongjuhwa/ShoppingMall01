@@ -16,6 +16,8 @@ public class BoardWriteProAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+		String board_target = (String)request.getParameter("target");
+		System.out.println(board_target);
 		ActionForward forward = null;
 		BoardBean boardBean = null;
 		
@@ -34,7 +36,7 @@ public class BoardWriteProAction implements Action {
 		boardBean.setBOARD_CONTENT(multi.getParameter("BOARD_CONTENT"));
 		boardBean.setBOARD_FILE(multi.getOriginalFileName((String) multi.getFileNames().nextElement()));
 		BoardWriteProService boardWriteProService = new BoardWriteProService();
-		boolean isWriteSuccess = boardWriteProService.registArticle(boardBean);
+		boolean isWriteSuccess = boardWriteProService.registArticle(boardBean, board_target);
 
 		if (!isWriteSuccess) {
 			response.setContentType("text/html;charset=UTF-8");
@@ -46,7 +48,7 @@ public class BoardWriteProAction implements Action {
 		} else {
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("boardList.bo");
+			forward.setPath("boardList.bo?target=" + board_target);
 		}
 
 		return forward;

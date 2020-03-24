@@ -11,10 +11,11 @@ public class BoardModifyFormAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+		String board_target = (String)request.getParameter("target");
 		ActionForward forward = new ActionForward();
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		BoardDetailService boardDetailService = new BoardDetailService();
-		BoardBean article = boardDetailService.getArticle(board_num);
+		BoardBean article = boardDetailService.getArticle(board_num, board_target);
 		request.setAttribute("article", article);
 		forward.setPath("/board/board_modify.jsp");
 		return forward;
