@@ -88,7 +88,6 @@ h3 {
 	text-align: center;
 	margin-top: 15px;
 	word-spacing: 40px;
-
 }
 
 ul {
@@ -143,12 +142,13 @@ li {
 	<div id="wrap">
 		<div class="kk">
 			<div>
-				<a href="../MemberLogin.me">LOG_IN</a>
+				<a href="index.jsp">LOG_OUT</a>
 				CART(0)
-				<a href="../board1List.bo">NOTICE</a>
-				<a href="../board2List.bo">REVIEW</a> 
-				<a href="../board3List.bo">Q&A</a>
-				<a href="">FAQ</a>
+				<a href="boardList.bo?target=board1">NOTICE</a>
+				<a href="boardList.bo?target=board2">REVIEW</a> 
+				<a href="boardList.bo?target=board3">Q&A</a>
+				<a href="boardList.bo?target=board4">FAQ</a>
+				<a href="">MYPAGE</a>
 			</div>
 	
 			<h1>
@@ -160,7 +160,9 @@ li {
 	
 			<hr>
 	
-			<h3>BEST BASIC_ITEM NEW_ARRIVAL RING EARING NECKLACE SIVER_925
+			<h3>
+			<a href= "./best.jsp">BEST</a>
+			BASIC_ITEM NEW_ARRIVAL RING EARING NECKLACE SIVER_925
 				ETC BIG_SALE VINTAGE_COLLECTION</h3>
 	
 			<div>
@@ -170,7 +172,7 @@ li {
 		</div>
 		
 		<div id="hh">
-			<!--img src="./ring1.jpg" alt="반지"-->
+			<!-- img src="./images/ring1.jpg" alt="반지" -->
 		</div>
 	</div>
 	
